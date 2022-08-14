@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 550625160390590537}
   - component: {fileID: 550625160390590536}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 550625161252931933}
   - component: {fileID: 550625161252931932}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: IndicatorRotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 550625162270210596}
   - component: {fileID: 550625162270210597}
   - component: {fileID: -3195522556130327599}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,9 +178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f3edefbaf535f94b8739c2415008c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  col: {fileID: 0}
   movementSpeed: 3
+  indicator: {fileID: 550625162294282280}
+  attackWave: {fileID: 4191945406582117543, guid: 10454f53f57b51640a51618a5da6f71d, type: 3}
 --- !u!58 &550625162270210597
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -228,7 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 550625162294282280}
   - component: {fileID: 550625162294282283}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}

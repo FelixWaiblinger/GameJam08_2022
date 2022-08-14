@@ -5,39 +5,45 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private CircleCollider2D col;
-
     [SerializeField] private float movementSpeed = 3;
+    [SerializeField] private Transform indicator;
+    [SerializeField] private GameObject attackWave;
 
     private PlayerControls controls;
     private InputAction move;
     private InputAction attack;
 
-    private void Awake()
+    void Awake()
     {
         controls = new PlayerControls();
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
         move = controls.Player.Move;
         move.Enable();
 
         attack = controls.Player.Fire;
         attack.Enable();
+        attack.performed += Attack;
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
         move.Disable();
+        
+        attack.performed -= Attack;
         attack.Disable();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector2 vec = move.ReadValue<Vector2>() * Time.deltaTime * movementSpeed;
-        gameObject.transform.position += new Vector3(vec.x, vec.y, 0);
+        transform.position += new Vector3(vec.x, vec.y, 0);
+    }
+
+    public void Attack(InputAction.CallbackContext context)
+    {
+        Instantiate(attackWave, indicator.position, indicator.rotation);
     }
 }
