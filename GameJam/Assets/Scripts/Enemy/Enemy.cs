@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected GameObject explosion;
     
     protected int health;
+
+    public static event Action<int> killEvent;
 
     protected void FindPlayer()
     {
@@ -43,6 +46,7 @@ public class Enemy : MonoBehaviour
                 break;
         }
 
+        killEvent(health);
         Destroy(gameObject);
         Instantiate(splash, transform.position, transform.rotation);
         Instantiate(explosion, transform.position, transform.rotation);
