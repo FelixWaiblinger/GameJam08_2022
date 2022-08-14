@@ -132,7 +132,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  spawner: {fileID: 0}
   movementSpeed: 1
+  splash: {fileID: 5468374919275449068, guid: 2a20f8c3226888e4f8b9dfaad597533f, type: 3}
+  explosion: {fileID: 4230627531756433460, guid: d55fe9d79963dad499e14a98a7c7f2ba, type: 3}
   delayTime: 2
   speedUpTime: 0.5
 --- !u!61 &2923675262891471046

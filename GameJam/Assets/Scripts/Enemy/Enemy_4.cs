@@ -8,10 +8,12 @@ public class Enemy_4 : Enemy
     [SerializeField] private float speedUpTime = 0.5f;
 
     private float delay, speedUp;
+    private Color color = new Color(73, 48, 254);
 
     void Start()
     {
         FindPlayer();
+        health = 4;
         delay = delayTime;
         speedUp = speedUpTime;
     }

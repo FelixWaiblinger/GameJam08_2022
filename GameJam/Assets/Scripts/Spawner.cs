@@ -10,10 +10,11 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float gizmoY = 10;
     private float timer;
 
+    public GameObject[] getEnemyTypes() { return enemyTypes; }
+
     void Start()
     {
         timer = spawnTime;
-        
     }
 
     // Update is called once per frame
@@ -53,6 +54,5 @@ public class Spawner : MonoBehaviour
     {
         Gizmos.color = new Color(1, 0, 0, 0.5f);
         Gizmos.DrawCube(Vector3.zero, new Vector3(gizmoX, gizmoY, 0));
-        
     }
 }

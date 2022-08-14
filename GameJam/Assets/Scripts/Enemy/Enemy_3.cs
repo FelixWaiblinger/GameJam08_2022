@@ -7,6 +7,7 @@ public class Enemy_3 : Enemy
     void Start()
     {
         FindPlayer();
+        health = 3;
     }
 
     void Update()
