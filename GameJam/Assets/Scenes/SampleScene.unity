@@ -558,7 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 922446017}
   - component: {fileID: 922446018}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,11 +596,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -9.4, y: 4.93}
-  - {x: 10.21, y: 4.93}
-  - {x: 10.21, y: -5.05}
-  - {x: -9.4, y: -5.05}
-  - {x: -9.4, y: 4.93}
+  - {x: -8.47, y: 4.93}
+  - {x: 9.28, y: 4.93}
+  - {x: 9.28, y: -5.05}
+  - {x: -8.47, y: -5.05}
+  - {x: -8.47, y: 4.93}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -5840,10 +5840,6 @@ PrefabInstance:
     - target: {fileID: 550625162270210593, guid: f4879859e08bdfc41b0e79fe2a47d7f1, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 550625162270210593, guid: f4879859e08bdfc41b0e79fe2a47d7f1, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4879859e08bdfc41b0e79fe2a47d7f1, type: 3}
