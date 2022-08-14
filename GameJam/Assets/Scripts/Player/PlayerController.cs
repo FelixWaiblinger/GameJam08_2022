@@ -44,6 +44,9 @@ public class PlayerController : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext context)
     {
-        Instantiate(attackWave, indicator.position, indicator.rotation);
+        GameObject wave = Instantiate(attackWave, indicator.position, indicator.rotation);
+
+        wave.transform.localScale.Scale(new Vector3(3, 3, 1));
+        
     }
 }
