@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private CircleCollider2D col;
 
-    [SerializeField] private float movementSpeed = 5;
+    [SerializeField] private float movementSpeed = 3;
 
     private PlayerControls controls;
     private InputAction move;
