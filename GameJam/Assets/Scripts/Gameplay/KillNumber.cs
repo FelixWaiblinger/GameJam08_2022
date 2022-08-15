@@ -9,8 +9,9 @@ public class KillNumber : MonoBehaviour
     [SerializeField] private Vector3 move = new Vector3(1, 1, 0);
     [SerializeField] private float timer = 1f;
 
-    public void Setup(int num, Color32 color)
+    public void Setup(int num, Color color)
     {
+        number.overrideColorTags = true;
         number.color = color;
         number.SetText("+" + num.ToString());
     }
@@ -19,10 +20,10 @@ public class KillNumber : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        if (timer < 0.5f)
+        if (timer < 0.6f)
             number.transform.position += move;
 
-        if (timer < 0.2f)
+        if (timer < 0.1f)
             number.alpha -= 40;
 
         if (timer < 0)

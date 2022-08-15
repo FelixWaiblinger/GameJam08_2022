@@ -10,7 +10,7 @@ public class Enemy_3 : Enemy
         FindEnemyTypes();
         FindComboEvent();
         health = 3;
-        color = new Color(43, 66, 55);
+        color = new Color(201, 19, 12);
     }
 
     void Update()

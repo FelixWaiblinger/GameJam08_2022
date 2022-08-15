@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5468374919275449065}
   - component: {fileID: 5468374919275449066}
   - component: {fileID: 5468374919275449067}
+  - component: {fileID: 4986734463973443542}
   m_Layer: 0
   m_Name: Splash
   m_TagString: Untagged
@@ -4873,3 +4874,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4986734463973443542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468374919275449068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e32842a63c498498fb353b5d126464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ps: {fileID: 5468374919275449066}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4230627531756433417}
   - component: {fileID: 4230627531756433462}
   - component: {fileID: 4230627531756433463}
+  - component: {fileID: 7497449203813774048}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -222,8 +223,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.38431376, g: 0.6627451, b: 0.38431376, a: 1}
-      maxColor: {r: 0.17254902, g: 0.5686275, b: 0.17254902, a: 1}
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4896,3 +4897,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &7497449203813774048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230627531756433460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e32842a63c498498fb353b5d126464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ps: {fileID: 4230627531756433462}
