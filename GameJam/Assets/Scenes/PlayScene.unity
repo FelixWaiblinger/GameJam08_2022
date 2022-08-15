@@ -1411,7 +1411,7 @@ MonoBehaviour:
   sounds:
   - name: EnemyDeath
     clip: {fileID: 8300000, guid: 231a9eaa43abe4c4a8da64ff8bc4c774, type: 3}
-    volume: 0.561
+    volume: 0.281
     pitch: 1.41
     loop: 0
     source: {fileID: 0}
