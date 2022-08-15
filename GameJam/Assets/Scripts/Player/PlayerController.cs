@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
         controls = new PlayerControls();
         body = gameObject.GetComponentInChildren<SpriteRenderer>();
         defaultColor = body.color;
+        waveStrength = 1f;
+        movementSpeed = 3;
     }
 
     void OnEnable()
@@ -69,6 +71,7 @@ public class PlayerController : MonoBehaviour
         if (attackTimer > 0) return;
         
         Instantiate(attackWave, indicator.position, indicator.rotation);
+        FindObjectOfType<AudioManager>().Play("ShootSound");
         attackTimer = reloadTime;
     }
 

@@ -65,5 +65,7 @@ public class Enemy : MonoBehaviour
 
         GameObject popUp = Instantiate(killNumber, transform.position, Quaternion.identity);
         popUp.GetComponent<KillNumber>().Setup(health * comboMultiplier, color);
+
+        FindObjectOfType<AudioManager>().Play("EnemyDeath");
     }
 }
