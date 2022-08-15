@@ -5,8 +5,7 @@ using UnityEngine;
 public class BigWave : Upgrade
 {
     private PlayerController playerScript;
-    private WaveController waveScript;
-    
+        
     void Start()
     {
         timer = 20f;
@@ -19,11 +18,9 @@ public class BigWave : Upgrade
 
         if (timer == 20f)
         {
-            waveScript = wave.GetComponent<WaveController>();
             playerScript = player.GetComponent<PlayerController>();
             // scale up
-            waveScript.DamageUp(2f);
-            waveScript.ScalingUp(2f);
+            playerScript.WaveUp(2f);
         }
 
         timer -= Time.deltaTime;
@@ -31,8 +28,7 @@ public class BigWave : Upgrade
         if (timer < 0)
         {
             // scale down
-            waveScript.DamageUp(0.5f);
-            waveScript.ScalingUp(0.5f);
+            playerScript.WaveUp(0.5f);
             playerScript.Remove(gameObject);
             Destroy(gameObject);
         }

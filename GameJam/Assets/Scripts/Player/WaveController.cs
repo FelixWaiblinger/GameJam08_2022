@@ -6,20 +6,20 @@ public class WaveController : MonoBehaviour
 {
     [SerializeField] private EdgeCollider2D wave;
     [SerializeField] private float durationTime = 1f;
-    [SerializeField] private float travelSpeed = 1f;
+    [SerializeField] private float travelSpeed = 2f;
+    [SerializeField] private float travelDistance = 1f;
     [SerializeField] private Vector3 scaling = new Vector3(1.5f, 1.5f, 1f);
-    [SerializeField] private float damage = 2f;
+    private float damage = 2f;
 
     private Vector3 target;
     private float duration;
 
-    public void DamageUp(float factor) { damage *= factor; }
-    public void ScalingUp(float factor) { scaling *= factor; }
-
     void Start()
     {
         duration = durationTime;
-        target = transform.localPosition + Vector3.up;
+        target = transform.localPosition + Vector3.up * travelDistance;
+        damage *= PlayerController.waveStrength;
+        transform.localScale *= PlayerController.waveStrength;
     }
 
     void Update()

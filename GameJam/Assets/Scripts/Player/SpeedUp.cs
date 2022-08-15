@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpeedUp : Upgrade
 {
-    private PlayerController script;
+    private PlayerController playerScript;
 
     void Start()
     {
@@ -17,16 +17,16 @@ public class SpeedUp : Upgrade
 
         if (timer == 15f)
         {
-            script = player.GetComponent<PlayerController>();
-            script.SpeedUp(2f);
+            playerScript = player.GetComponent<PlayerController>();
+            playerScript.SpeedUp(2f);
         }
 
         timer -= Time.deltaTime;
 
         if (timer < 0)
         {
-            script.SpeedUp(0.5f);
-            script.Remove(gameObject);
+            playerScript.SpeedUp(0.5f);
+            playerScript.Remove(gameObject);
             Destroy(gameObject);
         }
     }

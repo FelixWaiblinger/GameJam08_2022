@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Invincible : Upgrade
 {
-    private PlayerController script;
+    private PlayerController playerScript;
 
     void Start()
     {
@@ -18,16 +18,16 @@ public class Invincible : Upgrade
 
         if (timer == 8f)
         {
-            script = player.GetComponent<PlayerController>();
-            script.SetInvincible();
+            playerScript = player.GetComponent<PlayerController>();
+            playerScript.SetInvincible();
         }
 
         timer -= Time.deltaTime;
 
         if (timer < 0)
         {
-            script.SetInvincible();
-            script.Remove(gameObject);
+            playerScript.SetInvincible();
+            playerScript.Remove(gameObject);
             Destroy(gameObject);
         }
     }

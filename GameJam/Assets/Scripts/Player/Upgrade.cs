@@ -5,14 +5,12 @@ using UnityEngine;
 public class Upgrade : MonoBehaviour
 {
     protected GameObject player;
-    protected GameObject wave;
     protected bool active = false;
     protected float timer;
 
-    public void Setup(GameObject p, GameObject w)
+    public void Setup(GameObject p)
     {
         player = p;
-        wave = w;
         active = true;
     }
 }
