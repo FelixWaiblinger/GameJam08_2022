@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Enemy_Boss_1 : Enemy {
+    [SerializeField] private float delayTime = 6f;
+
+    private float delay, speedUp;
+
+    void Start() {
+        FindPlayer();
+        FindEnemyTypes();
+        FindComboEvent();
+        health = 20;
+        color = new Color(253, 19, 61);
+        delay = delayTime;
+    }
+
+    void Update() {
+        if (delay > 0) delay -= Time.deltaTime;
+        else {
+            transform.localScale.Scale(new Vector3 (1.5f, 1.5f, 0));
+            delay = delayTime;
+        }
+
+        MoveToPlayer();
+    }
+}

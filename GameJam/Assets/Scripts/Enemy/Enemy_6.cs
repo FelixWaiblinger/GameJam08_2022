@@ -15,7 +15,7 @@ public class Enemy_6 : Enemy
         FindEnemyTypes();
         FindComboEvent();
         health = 6;
-        color = new Color(73, 48, 254);
+        color = new Color(212, 19, 253);
         delay = delayTime;
     }
 

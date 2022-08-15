@@ -26,8 +26,8 @@ public class KillCounter : MonoBehaviour
     {
         if (timer < comboTime) timer += Time.deltaTime;
 
-        overall.text = "Time:\t" + kills.ToString();
-        combo.text = "Time:\t" + killsWithinTime.ToString();
+        overall.text = "Kills:\t" + kills.ToString();
+        combo.text = "Combo:\t" + killsWithinTime.ToString();
     }
 
     void AddKill(int worth)

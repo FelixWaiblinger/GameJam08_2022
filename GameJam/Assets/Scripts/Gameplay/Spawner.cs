@@ -47,7 +47,10 @@ public class Spawner : MonoBehaviour
                 x = Random.value >= 0.5 ? -10.0f + r : 10.0f - r;
             }
 
-            idx = Random.Range(0, enemyTypes.Length);
+            
+            
+                idx = Random.Range(0, enemyTypes.Length);
+            
 
             Instantiate(enemyTypes[idx], new Vector3(x, y, 0), Quaternion.identity);
 

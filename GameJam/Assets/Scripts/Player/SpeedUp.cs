@@ -8,14 +8,14 @@ public class SpeedUp : Upgrade
 
     void Start()
     {
-        timer = 15f;
+        timer = 6f;
     }
 
     void Update()
     {
         if (!active) return;
 
-        if (timer == 15f)
+        if (timer == 6f)
         {
             playerScript = player.GetComponent<PlayerController>();
             playerScript.SpeedUp(2f);
