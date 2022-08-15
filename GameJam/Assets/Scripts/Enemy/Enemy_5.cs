@@ -14,6 +14,11 @@ public class Enemy_5 : Enemy {
     }
     
     void Update() {
+        if (activateTimer < 0)
+            col.enabled = true;
+        else
+            activateTimer -= Time.deltaTime;
+            
         MoveToPlayer();
     }
 }

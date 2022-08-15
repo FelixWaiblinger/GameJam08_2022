@@ -11,10 +11,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected GameObject splash;
     [SerializeField] protected GameObject explosion;
     [SerializeField] protected GameObject killNumber;
+    [SerializeField] protected Collider2D col;
     
     protected int comboMultiplier = 1;
     protected Color color;
     protected int health;
+    protected float activateTimer = 0.5f;
 
     public static event Action<int> killEvent;
 

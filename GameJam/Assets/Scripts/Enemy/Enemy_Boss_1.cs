@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy_Boss_1 : Enemy {
     [SerializeField] private float delayTime = 6f;
 
-    private float delay, speedUp;
+    private float delay;
 
     void Start() {
         FindPlayer();
@@ -17,9 +17,14 @@ public class Enemy_Boss_1 : Enemy {
     }
 
     void Update() {
+        if (activateTimer < 0)
+            col.enabled = true;
+        else
+            activateTimer -= Time.deltaTime;
+            
         if (delay > 0) delay -= Time.deltaTime;
         else {
-            transform.localScale.Scale(new Vector3 (1.5f, 1.5f, 0));
+            transform.localScale.Scale(new Vector3(1.5f, 1.5f, 1f));
             delay = delayTime;
         }
 

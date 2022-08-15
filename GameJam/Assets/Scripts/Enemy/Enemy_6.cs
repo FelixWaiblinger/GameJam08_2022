@@ -21,6 +21,11 @@ public class Enemy_6 : Enemy
 
     void Update()
     {
+        if (activateTimer < 0)
+            col.enabled = true;
+        else
+            activateTimer -= Time.deltaTime;
+            
         if (delay > 0) delay -= Time.deltaTime;
         else
         {
