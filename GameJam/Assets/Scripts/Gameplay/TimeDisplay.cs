@@ -11,7 +11,7 @@ public class TimeDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeDisplay.text = string.Format("{0:00}:{1:00}:{2:00}", min, sec, (int)(sec * 100) % 100);
+        timeDisplay.text = string.Format("Time:\t{0:00}:{1:00}:{2:00}", min, sec, (int)(sec * 100) % 100);
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class TimeDisplay : MonoBehaviour
     {
         sec = Time.timeSinceLevelLoad;
 
-        timeDisplay.text = string.Format("{0:00}:{1:00}:{2:00}",
+        timeDisplay.text = string.Format("Time:\t{0:00}:{1:00}:{2:00}",
                             Mathf.Floor(sec / 60),
                             Mathf.FloorToInt(sec % 60),
                             Mathf.FloorToInt(sec * 100) % 100);
