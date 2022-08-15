@@ -6,14 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject controls;
-    private GameObject controlsInstance;
 
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public void Restart()
+    public void Restart() 
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("PlayScene", LoadSceneMode.Single);
@@ -21,12 +20,13 @@ public class GameManager : MonoBehaviour
 
     public void Controls()
     {
-        controlsInstance = Instantiate(controls, Vector3.zero, Quaternion.identity);
+        Instantiate(controls, Vector3.zero, Quaternion.identity);
     }
 
     public void ReturnControls()
     {
-        Destroy(controlsInstance);
+        Debug.Log("test");
+        Destroy(GameObject.FindGameObjectWithTag("Controls"));
     }
 
     public void Quit()
