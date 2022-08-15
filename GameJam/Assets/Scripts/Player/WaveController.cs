@@ -8,10 +8,13 @@ public class WaveController : MonoBehaviour
     [SerializeField] private float durationTime = 1f;
     [SerializeField] private float travelSpeed = 1f;
     [SerializeField] private Vector3 scaling = new Vector3(1.5f, 1.5f, 1f);
-    [SerializeField] private int damage = 2;
+    [SerializeField] private float damage = 2f;
 
     private Vector3 target;
     private float duration;
+
+    public void DamageUp(float factor) { damage *= factor; }
+    public void ScalingUp(float factor) { scaling *= factor; }
 
     void Start()
     {
@@ -38,7 +41,7 @@ public class WaveController : MonoBehaviour
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("EnemyLayer"))
         {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            col.gameObject.GetComponent<Enemy>().TakeDamage((int)damage);
         }
     }
 }

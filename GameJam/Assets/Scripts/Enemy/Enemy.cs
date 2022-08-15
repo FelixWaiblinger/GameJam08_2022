@@ -56,9 +56,13 @@ public class Enemy : MonoBehaviour
 
         killEvent(health);
         Destroy(gameObject);
-        Instantiate(splash, transform.position, transform.rotation);
-        Instantiate(explosion, transform.position, transform.rotation);
         
+        GameObject spl = Instantiate(splash, transform.position, transform.rotation);
+        spl.GetComponent<ParticleSetup>().setColor(color);
+        
+        GameObject exp = Instantiate(explosion, transform.position, transform.rotation);
+        exp.GetComponent<ParticleSetup>().setColor(color);
+
         GameObject popUp = Instantiate(killNumber, transform.position, Quaternion.identity);
         popUp.GetComponent<KillNumber>().Setup(health * comboMultiplier, color);
     }

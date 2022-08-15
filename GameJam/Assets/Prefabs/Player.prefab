@@ -181,6 +181,7 @@ MonoBehaviour:
   movementSpeed: 3
   indicator: {fileID: 550625162294282280}
   attackWave: {fileID: 4191945406582117543, guid: 10454f53f57b51640a51618a5da6f71d, type: 3}
+  gameOver: {fileID: 2659350472682141056, guid: bf35263b56f8dce4ba40119e613f25c5, type: 3}
 --- !u!58 &550625162270210597
 CircleCollider2D:
   m_ObjectHideFlags: 0
