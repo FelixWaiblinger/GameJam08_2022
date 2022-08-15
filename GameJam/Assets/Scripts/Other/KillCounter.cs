@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class KillCounter : MonoBehaviour
     private int kills = 0;
     private int killsWithinTime = 0;
     private float timer;
+
+    public static event Action<int> comboEvent;
 
     void Start()
     {
@@ -31,11 +34,20 @@ public class KillCounter : MonoBehaviour
     {
         // combo multiplier
         if (killsWithinTime > 80)
+        {
             worth *= 4;
+            comboEvent(4);
+        }
         else if (killsWithinTime > 40)
+        {
             worth *= 3;
+            comboEvent(3);
+        }
         else if (killsWithinTime > 20)
+        {
             worth *= 2;
+            comboEvent(2);
+        }
 
         kills += worth;
 

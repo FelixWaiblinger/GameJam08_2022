@@ -10,10 +10,18 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float movementSpeed = 1f;
     [SerializeField] protected GameObject splash;
     [SerializeField] protected GameObject explosion;
+    [SerializeField] protected GameObject killNumber;
     
+    protected int comboMultiplier = 1;
+    protected Color color;
     protected int health;
 
     public static event Action<int> killEvent;
+
+    protected void FindComboEvent()
+    {
+        KillCounter.comboEvent += num => comboMultiplier = num;
+    }
 
     protected void FindPlayer()
     {
@@ -50,5 +58,8 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
         Instantiate(splash, transform.position, transform.rotation);
         Instantiate(explosion, transform.position, transform.rotation);
+        
+        GameObject popUp = Instantiate(killNumber, transform.position, Quaternion.identity);
+        popUp.GetComponent<KillNumber>().Setup(health * comboMultiplier, color);
     }
 }

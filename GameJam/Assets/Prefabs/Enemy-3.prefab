@@ -136,6 +136,7 @@ MonoBehaviour:
   movementSpeed: 1
   splash: {fileID: 5468374919275449068, guid: 2a20f8c3226888e4f8b9dfaad597533f, type: 3}
   explosion: {fileID: 4230627531756433460, guid: d55fe9d79963dad499e14a98a7c7f2ba, type: 3}
+  killNumber: {fileID: 5293233639277974942, guid: 25a5264dc48342f49852c2ff942b6212, type: 3}
 --- !u!60 &1182715087798804196
 PolygonCollider2D:
   m_ObjectHideFlags: 0
