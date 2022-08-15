@@ -19,15 +19,15 @@ public class PlayerController : MonoBehaviour
     private List<GameObject> upgrades = new List<GameObject>();
     public static float waveStrength = 1f;
     private bool invincible = false;
-    private Color invincibleColor = new Color(131f, 231f, 245f);
+    private Color invincibleColor = new Color(255f, 255f, 255f);//131f, 231f, 245f);
     private Color defaultColor;
 
     public void SpeedUp(float factor) { movementSpeed *= factor; }
     public void WaveUp(float factor) { waveStrength *= factor; }
     public void Remove(GameObject obj) { upgrades.Remove(obj); }
-    public void SetInvincible()
+    public void SetInvincible(bool b)
     {
-        invincible = invincible ? false : true;
+        invincible = b;
         body.color = invincible ? invincibleColor : defaultColor;
     }
 

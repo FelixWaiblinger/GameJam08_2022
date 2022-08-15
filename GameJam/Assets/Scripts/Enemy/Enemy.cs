@@ -47,6 +47,17 @@ public class Enemy : MonoBehaviour
     {
         switch (health - dmg)
         {
+            case 18:
+                Instantiate(spawner.getEnemyTypes()[3], transform.position, transform.rotation);
+                Instantiate(spawner.getEnemyTypes()[3], transform.position, transform.rotation);
+                Instantiate(spawner.getEnemyTypes()[3], transform.position, transform.rotation);
+                break;
+
+            case 16:
+                Instantiate(spawner.getEnemyTypes()[2], transform.position, transform.rotation);
+                Instantiate(spawner.getEnemyTypes()[2], transform.position, transform.rotation);
+                break;
+
             case 4:
                 Instantiate(spawner.getEnemyTypes()[1], transform.position, transform.rotation);
                 break;
@@ -54,6 +65,7 @@ public class Enemy : MonoBehaviour
             case 3:
                 Instantiate(spawner.getEnemyTypes()[0], transform.position, transform.rotation);
                 break;
+
         }
 
         killEvent(health);

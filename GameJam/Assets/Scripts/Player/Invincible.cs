@@ -19,14 +19,14 @@ public class Invincible : Upgrade
         if (timer == 8f)
         {
             playerScript = player.GetComponent<PlayerController>();
-            playerScript.SetInvincible();
+            playerScript.SetInvincible(true);
         }
 
         timer -= Time.deltaTime;
 
         if (timer < 0)
         {
-            playerScript.SetInvincible();
+            playerScript.SetInvincible(false);
             playerScript.Remove(gameObject);
             Destroy(gameObject);
         }

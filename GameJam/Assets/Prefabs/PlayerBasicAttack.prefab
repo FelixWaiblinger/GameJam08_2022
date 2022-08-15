@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6762492525116822645}
   - component: {fileID: 2083107982947529256}
-  - component: {fileID: 4027902408104464543}
+  - component: {fileID: 6829986337596108078}
   m_Layer: 15
   m_Name: Wave
   m_TagString: Untagged
@@ -71,7 +71,7 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &4027902408104464543
+--- !u!114 &6829986337596108078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

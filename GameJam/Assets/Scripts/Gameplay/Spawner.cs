@@ -46,11 +46,15 @@ public class Spawner : MonoBehaviour
                 float r = Random.value;
                 x = Random.value >= 0.5 ? -10.0f + r : 10.0f - r;
             }
+            
+            if (Time.timeSinceLevelLoad < 30)
+                idx = Random.Range(0, Mathf.Min(2, enemyTypes.Length));
 
-            
-            
-                idx = Random.Range(0, enemyTypes.Length);
-            
+            else if (Time.timeSinceLevelLoad < 60)
+                idx = Random.Range(0, Mathf.Min(4, enemyTypes.Length));
+
+            else
+                idx = Random.Range(Mathf.Min(2, enemyTypes.Length - 1), Mathf.Min(5, enemyTypes.Length));
 
             Instantiate(enemyTypes[idx], new Vector3(x, y, 0), Quaternion.identity);
 
