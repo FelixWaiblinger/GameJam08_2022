@@ -13,4 +13,6 @@ public class Upgrade : MonoBehaviour
         player = p;
         active = true;
     }
+
+    protected float getTime() { return timer; }
 }

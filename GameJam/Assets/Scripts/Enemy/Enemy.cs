@@ -3,19 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] protected Transform player;
     [SerializeField] protected Spawner spawner;
-    [SerializeField] protected float movementSpeed = 1f;
     [SerializeField] protected GameObject splash;
     [SerializeField] protected GameObject explosion;
     [SerializeField] protected GameObject killNumber;
     [SerializeField] protected Collider2D col;
+    [SerializeField] protected float movementSpeed = 1f;
     
     protected int comboMultiplier = 1;
     protected Color color;
-    protected int health;
+    protected int startHealth;
+    protected int currentHealth;
     protected float activateTimer = 0.5f;
 
     public static event Action<int> killEvent;
@@ -43,32 +44,11 @@ public class Enemy : MonoBehaviour
                                 movementSpeed * Time.deltaTime);
     }
 
-    public void TakeDamage(int dmg)
+    public abstract void TakeDamage(int dmg);
+
+    protected void Die()
     {
-        switch (health - dmg)
-        {
-            case 18:
-                Instantiate(spawner.getEnemyTypes()[3], transform.position, transform.rotation);
-                Instantiate(spawner.getEnemyTypes()[3], transform.position, transform.rotation);
-                Instantiate(spawner.getEnemyTypes()[3], transform.position, transform.rotation);
-                break;
-
-            case 16:
-                Instantiate(spawner.getEnemyTypes()[2], transform.position, transform.rotation);
-                Instantiate(spawner.getEnemyTypes()[2], transform.position, transform.rotation);
-                break;
-
-            case 4:
-                Instantiate(spawner.getEnemyTypes()[1], transform.position, transform.rotation);
-                break;
-
-            case 3:
-                Instantiate(spawner.getEnemyTypes()[0], transform.position, transform.rotation);
-                break;
-
-        }
-
-        killEvent(health);
+        killEvent(startHealth);
         Destroy(gameObject);
         
         GameObject spl = Instantiate(splash, transform.position, transform.rotation);
@@ -78,7 +58,7 @@ public class Enemy : MonoBehaviour
         exp.GetComponent<ParticleSetup>().setColor(color);
 
         GameObject popUp = Instantiate(killNumber, transform.position, Quaternion.identity);
-        popUp.GetComponent<KillNumber>().Setup(health * comboMultiplier, color);
+        popUp.GetComponent<KillNumber>().Setup(startHealth * comboMultiplier);
 
         FindObjectOfType<AudioManager>().Play("EnemyDeath");
     }

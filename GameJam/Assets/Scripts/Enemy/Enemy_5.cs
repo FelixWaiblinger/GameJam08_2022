@@ -9,7 +9,8 @@ public class Enemy_5 : Enemy {
         FindPlayer();
         FindEnemyTypes();
         FindComboEvent();
-        health = 5;
+        startHealth = 5;
+        currentHealth = startHealth;
         color = new Color(255, 132, 14);
     }
     
@@ -20,5 +21,11 @@ public class Enemy_5 : Enemy {
             activateTimer -= Time.deltaTime;
             
         MoveToPlayer();
+    }
+
+    public override void TakeDamage(int dmg)
+    {
+        Instantiate(spawner.getEnemyTypes()[0], transform.position, transform.rotation);
+        Die();
     }
 }

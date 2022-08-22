@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,9 +23,17 @@ public class PlayerController : MonoBehaviour
     private Color invincibleColor = new Color(255f, 255f, 255f);//131f, 231f, 245f);
     private Color defaultColor;
 
+    public static event Action gameOverEvent;
+    public static event Action<bool> upgradeListEvent;
+
+    public List<GameObject> getUpgrades() { return upgrades; }
     public void SpeedUp(float factor) { movementSpeed *= factor; }
     public void WaveUp(float factor) { waveStrength *= factor; }
-    public void Remove(GameObject obj) { upgrades.Remove(obj); }
+    public void Remove(GameObject obj)
+    {
+        upgrades.Remove(obj);
+        upgradeListEvent(false);
+    }
     public void SetInvincible(bool b)
     {
         invincible = b;
@@ -86,6 +95,7 @@ public class PlayerController : MonoBehaviour
 
             Time.timeScale = 0.5f;
             Instantiate(gameOver, Vector3.zero, Quaternion.identity);
+            gameOverEvent();
         }
         // collect upgrade
         else if (col.gameObject.layer == LayerMask.NameToLayer("UpgradeLayer"))
@@ -96,6 +106,7 @@ public class PlayerController : MonoBehaviour
 
             // keep track of upgrade
             upgrades.Add(col.gameObject);
+            upgradeListEvent(true);
 
             // setup upgrade
             Upgrade upgrade = col.gameObject.GetComponent<Upgrade>();

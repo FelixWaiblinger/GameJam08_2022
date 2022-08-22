@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
-    [SerializeField] private EdgeCollider2D wave;
     [SerializeField] private float durationTime = 1f;
     [SerializeField] private float travelSpeed = 2f;
     [SerializeField] private float travelDistance = 1f;

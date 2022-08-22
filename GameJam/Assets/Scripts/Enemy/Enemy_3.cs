@@ -9,7 +9,8 @@ public class Enemy_3 : Enemy
         FindPlayer();
         FindEnemyTypes();
         FindComboEvent();
-        health = 3;
+        startHealth = 3;
+        currentHealth = startHealth;
         color = new Color(201, 19, 12);
     }
 
@@ -21,5 +22,10 @@ public class Enemy_3 : Enemy
             activateTimer -= Time.deltaTime;
             
         MoveToPlayer();
+    }
+
+    public override void TakeDamage(int dmg)
+    {
+        Die();
     }
 }

@@ -264,5 +264,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: {fileID: 5293233638241128810}
-  move: {x: 1, y: 1, z: 0}
+  move: {x: 0, y: 0.007, z: 0}
   timer: 1

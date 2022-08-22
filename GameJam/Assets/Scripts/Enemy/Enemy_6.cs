@@ -14,7 +14,8 @@ public class Enemy_6 : Enemy
         FindPlayer();
         FindEnemyTypes();
         FindComboEvent();
-        health = 6;
+        startHealth = 6;
+        currentHealth = startHealth;
         color = new Color(212, 19, 253);
         delay = delayTime;
     }
@@ -34,5 +35,11 @@ public class Enemy_6 : Enemy
         }
 
         MoveToPlayer();
+    }
+
+    public override void TakeDamage(int dmg)
+    {
+        Instantiate(spawner.getEnemyTypes()[1], transform.position, transform.rotation);
+        Die();
     }
 }

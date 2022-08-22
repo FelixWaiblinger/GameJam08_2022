@@ -6,13 +6,12 @@ using TMPro;
 public class KillNumber : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI number;
-    [SerializeField] private Vector3 move = new Vector3(1, 1, 0);
+    [SerializeField] private Vector3 move = new Vector3(0, 0.007f, 0);
     [SerializeField] private float timer = 1f;
 
-    public void Setup(int num, Color color)
+    public void Setup(int num)
     {
         number.overrideColorTags = true;
-        number.color = color;
         number.SetText("+" + num.ToString());
     }
 

@@ -11,7 +11,8 @@ public class Enemy_Boss_1 : Enemy {
         FindPlayer();
         FindEnemyTypes();
         FindComboEvent();
-        health = 20;
+        startHealth = 14;
+        currentHealth = startHealth;
         color = new Color(253, 19, 61);
         delay = delayTime;
     }
@@ -29,5 +30,37 @@ public class Enemy_Boss_1 : Enemy {
         }
 
         MoveToPlayer();
+    }
+
+    public override void TakeDamage(int dmg)
+    {
+        currentHealth -= dmg;
+
+        switch (currentHealth)
+        {
+            case 12:
+                Instantiate(spawner.getEnemyTypes()[3], transform.position, transform.rotation);
+                Instantiate(spawner.getEnemyTypes()[3], transform.position, transform.rotation);
+                Instantiate(spawner.getEnemyTypes()[3], transform.position, transform.rotation);
+                break;
+
+            case 10:
+                Instantiate(spawner.getEnemyTypes()[2], transform.position, transform.rotation);
+                Instantiate(spawner.getEnemyTypes()[2], transform.position, transform.rotation);
+                break;
+
+            case 8:
+                Instantiate(spawner.getEnemyTypes()[1], transform.position, transform.rotation);
+                break;
+
+            case 6:
+            case 4:
+                Instantiate(spawner.getEnemyTypes()[0], transform.position, transform.rotation);
+                break;
+
+            default:
+                Die();
+                break;
+        }
     }
 }

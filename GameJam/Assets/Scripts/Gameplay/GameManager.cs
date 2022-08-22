@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
 
     public void ReturnControls()
     {
-        Debug.Log("test");
         Destroy(GameObject.FindGameObjectWithTag("Controls"));
     }
 

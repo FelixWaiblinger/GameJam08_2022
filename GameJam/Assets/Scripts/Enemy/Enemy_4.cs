@@ -14,7 +14,8 @@ public class Enemy_4 : Enemy
         FindPlayer();
         FindEnemyTypes();
         FindComboEvent();
-        health = 4;
+        startHealth = 4;
+        currentHealth = startHealth;
         color = new Color(73, 48, 254);
         delay = delayTime;
         speedUp = speedUpTime;
@@ -42,5 +43,10 @@ public class Enemy_4 : Enemy
         }
 
         MoveToPlayer();
+    }
+
+    public override void TakeDamage(int dmg)
+    {
+        Die();
     }
 }
