@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SpeedUp : Upgrade
 {
-    private PlayerController playerScript;
-
     void Start()
     {
         timer = 6f;
@@ -17,16 +15,16 @@ public class SpeedUp : Upgrade
 
         if (timer == 6f)
         {
-            playerScript = player.GetComponent<PlayerController>();
-            playerScript.SpeedUp(2f);
+            player.GetComponent<PlayerController>().SpeedUp(2f);
         }
 
         timer -= Time.deltaTime;
+        icon.fillAmount -= Time.deltaTime / 6f;
 
         if (timer < 0)
         {
-            playerScript.SpeedUp(0.5f);
-            playerScript.Remove(gameObject);
+            player.GetComponent<PlayerController>().SpeedUp(0.5f);
+            player.GetComponent<PlayerUpgrades>().Remove(this);
             Destroy(gameObject);
         }
     }

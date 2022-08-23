@@ -140,6 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 550625162270210592}
   - component: {fileID: 550625162270210596}
+  - component: {fileID: 2516658898047258735}
   - component: {fileID: 550625162270210597}
   - component: {fileID: -3195522556130327599}
   - component: {fileID: 8631493957312221134}
@@ -184,6 +185,21 @@ MonoBehaviour:
   attackWave: {fileID: 4191945406582117543, guid: 10454f53f57b51640a51618a5da6f71d, type: 3}
   reloadTime: 0.2
   gameOver: {fileID: 2659350472682141056, guid: bf35263b56f8dce4ba40119e613f25c5, type: 3}
+--- !u!114 &2516658898047258735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550625162270210593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7470bc39902c8c46a3485723d803fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  offset: {x: -10, y: 0, z: 0}
+  upgrades: []
 --- !u!58 &550625162270210597
 CircleCollider2D:
   m_ObjectHideFlags: 0

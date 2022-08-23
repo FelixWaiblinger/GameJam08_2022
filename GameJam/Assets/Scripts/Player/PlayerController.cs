@@ -17,28 +17,12 @@ public class PlayerController : MonoBehaviour
     private InputAction move;
     private InputAction attack;
     private float attackTimer = 0f;
-    private List<GameObject> upgrades = new List<GameObject>();
     public static float waveStrength = 1f;
     private bool invincible = false;
     private Color invincibleColor = new Color(255f, 255f, 255f);//131f, 231f, 245f);
     private Color defaultColor;
 
     public static event Action gameOverEvent;
-    public static event Action<bool> upgradeListEvent;
-
-    public List<GameObject> getUpgrades() { return upgrades; }
-    public void SpeedUp(float factor) { movementSpeed *= factor; }
-    public void WaveUp(float factor) { waveStrength *= factor; }
-    public void Remove(GameObject obj)
-    {
-        upgrades.Remove(obj);
-        upgradeListEvent(false);
-    }
-    public void SetInvincible(bool b)
-    {
-        invincible = b;
-        body.color = invincible ? invincibleColor : defaultColor;
-    }
 
     void Awake()
     {
@@ -84,6 +68,22 @@ public class PlayerController : MonoBehaviour
         attackTimer = reloadTime;
     }
 
+    public void SetInvincible(bool b)
+    {
+        invincible = b;
+        body.color = invincible ? invincibleColor : defaultColor;
+    }
+
+    public void SpeedUp(float factor)
+    {
+        movementSpeed *= factor;
+    }
+
+    public void WaveUp(float factor)
+    {
+        waveStrength *= factor;
+    }
+
     void OnCollisionEnter2D(Collision2D col)
     {
         // Game over
@@ -96,21 +96,6 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0.5f;
             Instantiate(gameOver, Vector3.zero, Quaternion.identity);
             gameOverEvent();
-        }
-        // collect upgrade
-        else if (col.gameObject.layer == LayerMask.NameToLayer("UpgradeLayer"))
-        {
-            // deactivate upgrade "on screen"
-            col.collider.enabled = false;
-            col.gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
-
-            // keep track of upgrade
-            upgrades.Add(col.gameObject);
-            upgradeListEvent(true);
-
-            // setup upgrade
-            Upgrade upgrade = col.gameObject.GetComponent<Upgrade>();
-            upgrade.Setup(gameObject);
         }
     }
 }

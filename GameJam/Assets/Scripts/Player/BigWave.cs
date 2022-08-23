@@ -4,32 +4,28 @@ using UnityEngine;
 
 public class BigWave : Upgrade
 {
-    private PlayerController playerScript;
-        
     void Start()
     {
         timer = 20f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!active) return;
 
         if (timer == 20f)
         {
-            playerScript = player.GetComponent<PlayerController>();
-            // scale up
-            playerScript.WaveUp(2f);
+            player.GetComponent<PlayerController>().WaveUp(2f);
         }
 
         timer -= Time.deltaTime;
+        icon.fillAmount -= Time.deltaTime / 20f;
 
         if (timer < 0)
         {
             // scale down
-            playerScript.WaveUp(0.5f);
-            playerScript.Remove(gameObject);
+            player.GetComponent<PlayerController>().WaveUp(0.5f);
+            player.GetComponent<PlayerUpgrades>().Remove(this);
             Destroy(gameObject);
         }
     }

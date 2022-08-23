@@ -16,9 +16,12 @@ public class WaveController : MonoBehaviour
     void Start()
     {
         duration = durationTime;
-        target = transform.localPosition + Vector3.up * travelDistance;
         damage *= PlayerController.waveStrength;
         transform.localScale *= PlayerController.waveStrength;
+        target = transform.localPosition + travelDistance * new Vector3(
+                    Mathf.Sin((360-transform.eulerAngles.z) * Mathf.Deg2Rad),
+                    Mathf.Cos((360-transform.eulerAngles.z) * Mathf.Deg2Rad),
+                    0);
     }
 
     void Update()

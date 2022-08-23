@@ -6,8 +6,8 @@ public class FPS_Limiter : MonoBehaviour
 {
     [SerializeField] private int FPS;
 
-    private void Awake() {
+    private void Awake()
+    {
         Application.targetFrameRate = FPS;
-
     }
 }
