@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private InputAction attack;
     private float attackTimer = 0f;
     public static float waveStrength = 1f;
-    private bool invincible = false;
+    private int invincible = 0;
     private Color invincibleColor = new Color(255f, 255f, 255f);//131f, 231f, 245f);
     private Color defaultColor;
 
@@ -68,10 +68,10 @@ public class PlayerController : MonoBehaviour
         attackTimer = reloadTime;
     }
 
-    public void SetInvincible(bool b)
+    public void SetInvincible(int i)
     {
-        invincible = b;
-        body.color = invincible ? invincibleColor : defaultColor;
+        invincible += i;
+        body.color = invincible > 0 ? invincibleColor : defaultColor;
     }
 
     public void SpeedUp(float factor)
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         // Game over
-        if (!invincible && col.gameObject.layer == LayerMask.NameToLayer("EnemyLayer"))
+        if (invincible == 0 && col.gameObject.layer == LayerMask.NameToLayer("EnemyLayer"))
         {
             move.Disable();
             attack.Disable();

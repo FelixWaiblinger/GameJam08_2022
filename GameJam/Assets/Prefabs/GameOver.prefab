@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 2659350472682141063}
   - component: {fileID: 2659350472682141062}
   - component: {fileID: 2659350472682141057}
+  - component: {fileID: 4524168815346113057}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
@@ -397,7 +398,7 @@ Canvas:
   m_GameObject: {fileID: 2659350472682141056}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -449,6 +450,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4524168815346113057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2659350472682141056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e0388ca36b60441aaa0c5dc024b0be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2659350472786670276
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,8 +584,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9098050507766436488, guid: edd348d6c2320f440b854988cc778eae, type: 3}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 4524168815346113057}
+        m_TargetAssemblyTypeName: GameManagerProxy, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -705,8 +718,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9098050507766436488, guid: edd348d6c2320f440b854988cc778eae, type: 3}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 4524168815346113057}
+        m_TargetAssemblyTypeName: GameManagerProxy, Assembly-CSharp
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:

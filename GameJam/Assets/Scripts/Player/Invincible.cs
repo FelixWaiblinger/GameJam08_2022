@@ -15,7 +15,7 @@ public class Invincible : Upgrade
 
         if (timer == 8f)
         {
-            player.GetComponent<PlayerController>().SetInvincible(true);
+            player.GetComponent<PlayerController>().SetInvincible(1);
         }
 
         timer -= Time.deltaTime;
@@ -23,7 +23,7 @@ public class Invincible : Upgrade
 
         if (timer < 0)
         {
-            player.GetComponent<PlayerController>().SetInvincible(false);
+            player.GetComponent<PlayerController>().SetInvincible(-1);
             player.GetComponent<PlayerUpgrades>().Remove(this);
             Destroy(gameObject);
         }

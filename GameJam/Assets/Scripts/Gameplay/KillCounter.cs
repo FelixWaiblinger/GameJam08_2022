@@ -18,6 +18,11 @@ public class KillCounter : MonoBehaviour
 
     public static event Action<int> comboEvent;
 
+    void OnDestroy()
+    {
+        Enemy.killEvent -= AddKill;
+    }
+
     void Start()
     {
         Enemy.killEvent += AddKill;

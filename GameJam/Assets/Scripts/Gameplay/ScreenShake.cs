@@ -9,9 +9,8 @@ public class ScreenShake : MonoBehaviour
 
     private Camera main;
 
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
+    void OnDestroy() {
+        Enemy.killEvent -= Shake;
     }
 
     void Start()
@@ -27,9 +26,11 @@ public class ScreenShake : MonoBehaviour
 
     IEnumerator _Shake(int amount)
     {
+        float range = shakeStrength * amount;
+
         for (int i = 0; i < 10; ++i)
         {
-            main.orthographicSize += Random.Range(-shakeStrength * amount, shakeStrength * amount);
+            main.orthographicSize += Random.Range(-range, range);
             yield return new WaitForSeconds(shakeLength);
         }
 

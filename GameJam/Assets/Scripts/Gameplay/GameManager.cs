@@ -5,17 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
     [SerializeField] private GameObject controls;
+    [SerializeField] private Animator anim;
+    [SerializeField] private float transitionTime = 1f;
 
     void Awake()
     {
+        if (Instance)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        Instance = this;
+        
         DontDestroyOnLoad(this.gameObject);
+
+        SceneManager.sceneUnloaded += _ => anim.SetTrigger("swipe_out");
     }
 
-    public void Restart() 
+    public void Restart()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("PlayScene", LoadSceneMode.Single);
+        StartCoroutine(_LoadPlayScene());
     }
 
     public void Controls()
@@ -31,5 +44,14 @@ public class GameManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    IEnumerator _LoadPlayScene()
+    {
+        anim.SetTrigger("swipe_in");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene("PlayScene", LoadSceneMode.Single);
     }
 }

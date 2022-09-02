@@ -8,12 +8,17 @@ public class PlayerUpgrades : MonoBehaviour
 {
     [SerializeField] private Transform parent;
     [SerializeField] private Image upgradeBackground;
-    [SerializeField] private Vector3 offset = new Vector3(1f, 0f, 0f);
     [SerializeField] private List<Upgrade> upgrades;
 
+    private Vector3 offset = new Vector3(1f, 0f, 0f);
     private Vector3 position;
 
     public static event Action upgradeEvent;
+
+    void OnDestroy()
+    {
+        upgradeEvent -= Relocate;
+    }
 
     void Start()
     {
