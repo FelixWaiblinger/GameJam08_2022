@@ -2442,7 +2442,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 1708078338}
   upgradeBackground: {fileID: 1708078335}
-  offset: {x: -1, y: 0, z: 0}
   upgrades: []
 --- !u!1001 &3707800021456321706
 PrefabInstance:

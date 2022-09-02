@@ -2434,7 +2434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click anywhere to return...
+  m_text: Press anything to return...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 93405f501dd83884f9f8c45f66f316c7, type: 2}
   m_sharedMaterial: {fileID: -6597763182387519459, guid: 93405f501dd83884f9f8c45f66f316c7, type: 2}

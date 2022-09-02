@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -94,7 +95,8 @@ public class PlayerController : MonoBehaviour
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
 
             Time.timeScale = 0.5f;
-            Instantiate(gameOver, Vector3.zero, Quaternion.identity);
+            var obj = Instantiate(gameOver, Vector3.zero, Quaternion.identity);
+            obj.GetComponentInChildren<Button>().Select();
             gameOverEvent();
         }
     }
