@@ -194,6 +194,8 @@ MonoBehaviour:
   attackWave: {fileID: 4191945406582117543, guid: 10454f53f57b51640a51618a5da6f71d, type: 3}
   reloadTime: 0.2
   gameOver: {fileID: 2659350472682141056, guid: bf35263b56f8dce4ba40119e613f25c5, type: 3}
+  splash: {fileID: 5468374919275449068, guid: 2a20f8c3226888e4f8b9dfaad597533f, type: 3}
+  explosion: {fileID: 4230627531756433460, guid: d55fe9d79963dad499e14a98a7c7f2ba, type: 3}
 --- !u!1 &38089656
 GameObject:
   m_ObjectHideFlags: 0

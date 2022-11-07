@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float reloadTime = 0.2f;
     [SerializeField] private GameObject gameOver;
 
+    [SerializeField] protected GameObject splash;
+    [SerializeField] protected GameObject explosion;
+
     private SpriteRenderer body;
     private PlayerControls controls;
     private InputAction move;
@@ -94,6 +97,14 @@ public class PlayerController : MonoBehaviour
             attack.Disable();
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
 
+            //Killing Player Animation
+            GameObject spl = Instantiate(splash, transform.position, transform.rotation);
+            spl.GetComponent<ParticleSetup>().setColor(defaultColor);
+
+            GameObject exp = Instantiate(explosion, transform.position, transform.rotation);
+            exp.GetComponent<ParticleSetup>().setColor(defaultColor);
+
+            //TimeScale und Initiating GameOverScreen
             Time.timeScale = 0.5f;
             var obj = Instantiate(gameOver, Vector3.zero, Quaternion.identity);
             obj.GetComponentInChildren<Button>().Select();
